@@ -1,0 +1,50 @@
+package com.company;
+
+public class Main {
+
+
+    public static boolean checkPerfectNumber(int num) {
+
+        if(num==1)
+            return false;
+
+        // To store sum of divisors
+        int sum = 1;
+
+        //Find all divisors and add them.
+        for(int i = 2; i*i<=num; i++)
+        {
+            if(num%i==0)
+            {
+                if(i*i!=num)
+                    sum = sum + i + num/i;
+                else
+                    sum = sum + i;
+            }
+        }
+
+        //If sum of divisor is equal to n, then n is a perfect number.
+        if(sum==num)
+            return true;
+
+        return false;
+
+    }
+
+    public static void main(String[] args) {
+
+        if(checkPerfectNumber(7))
+        {
+            System.out.println("7 is a perfect number");
+        }else{
+            System.out.println("7 is not a perfect number");
+        }
+
+        if(checkPerfectNumber(28))
+        {
+            System.out.println("28 is a perfect number");
+        }else{
+            System.out.println("28 is not a perfect number");
+        }
+    }
+}
