@@ -1,0 +1,58 @@
+
+package com.company;
+
+import java.util.Scanner;
+
+import static java.lang.Math.max;
+
+public class MaxMin {
+
+
+    public static void minmax(int[] array1, int[] array2, int n) {
+
+        for(int i=0;i<n;i++)
+        {
+            if(array1[i]<=array2[i])
+            {
+               int temp= array1[i];
+               array1[i] = array2[i];
+               array2[i] = temp;
+            }
+        }
+
+        int max1 = array1[0], max2 = array2[0];
+        System.out.println(array1);
+        System.out.println(array2);
+
+        for(int i=1;i<n;i++)
+        {
+
+            max1 = max(array1[i], max1);
+            max2 = max(array2[i], max2);
+
+        }
+
+        System.out.println("The minimum possible product is "+ max1*max2);
+
+    }
+
+    public static void main(String[] args) {
+        int n;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of array");
+        n= sc.nextInt();
+        int[] array1 = new int[n];
+        int[] array2 = new int[n];
+
+        System.out.println("Enter the elements of array1");
+        for(int i=0;i<n;i++)
+            array1[i]=sc.nextInt();
+
+        System.out.println("Enter the elements of array2");
+        for(int i=0;i<n;i++)
+            array2[i]=sc.nextInt();
+
+        minmax(array1, array2, n);
+
+    }
+}
